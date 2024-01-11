@@ -1,7 +1,7 @@
 # MMEmotionRecognition
 Repository with the code of the paper: [A proposal for Multimodal Emotion Recognition using aural transformers and Action Units on RAVDESS dataset](https://www.mdpi.com/2076-3417/12/1/327)
 
-
+- https://github.com/gphuang/MMEmotionRecognition
 
 ## Installation
 
