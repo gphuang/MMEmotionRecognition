@@ -17,7 +17,7 @@
 """
 
 import argparse
-import os
+import os, sys
 
 
 def convert_audio216k(in_path_video, out_path_audio):
@@ -41,8 +41,9 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     os.makedirs(args.out_dir, exist_ok=True)
-    for video_i in os.listdir(args.videos_dir):
-        path_video = os.path.join(args.videos_dir, video_i)
-        path_out_audio = os.path.join(args.out_dir, video_i.rsplit(".")[0]+".wav")
-        print("Processing ", path_video)
-        convert_audio216k(path_video, path_out_audio)
+    for actor_i in os.listdir(args.videos_dir):
+        for video_i in os.listdir(os.path.join(args.videos_dir, actor_i)):
+            path_video = os.path.join(args.videos_dir, actor_i, video_i)
+            path_out_audio = os.path.join(args.out_dir, video_i.rsplit(".")[0]+".wav")
+            print("Processing ", path_video)
+            convert_audio216k(path_video, path_out_audio)

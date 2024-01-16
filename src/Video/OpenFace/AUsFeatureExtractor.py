@@ -77,8 +77,9 @@ if __name__ == '__main__':
 
 
     os.makedirs(args.out_dir_processed, exist_ok=True)
-    for video in os.listdir(args.videos_dir):
-        extract_features_OpenFace(video, args.videos_dir, args.openFace_path, args.out_dir, static="")
+    for actor_id in os.listdir(args.videos_dir):
+        for video in os.listdir(os.path.join(args.videos_dir, actor_id)):
+            extract_features_OpenFace(video, os.path.join(args.videos_dir, actor_id), args.openFace_path, args.out_dir, static="")
     save_embs_complete(args.out_dir, args.out_dir_processed)
 
 
