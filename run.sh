@@ -7,15 +7,21 @@
 #SBATCH --job-name=ser
 #SBATCH -n 1
 
-# !kinit # to access data on /teamwork/
 # !mkdir -p logs # to create ./logs/
 
 module load miniconda
+module load cuda/11.8 
 module load ffmpeg/4.3.2
-module load gcc/8.4.0 
-module laod cuda
 
-source activate mmer # created using requirement file: torchaudio version 0.10
+source activate mmer 
+
+# setup
+conda create -n mmer 
+conda install pip
+pip3 install --upgrade pip
+pip install git+https://github.com/huggingface/datasets.git
+pip install git+https://github.com/huggingface/transformers.git
+pip install -r requirements.txt
 
 ## Speech Emotion Recognition
 # - training ser_seq seems to take long 10hr and eval_acc. not improving, epoch seems off.

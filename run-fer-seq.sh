@@ -7,13 +7,10 @@
 #SBATCH --job-name=fer
 #SBATCH -n 1
 
-# !kinit # to access data on /teamwork/
-# !mkdir -p logs # to create ./logs/
-
 module load miniconda
-module load ffmpeg/4.3.2
-module load gcc/8.4.0 
-module laod cuda
+module load ffmpeg 
+module load gcc  
+module load cuda
 
 source activate mmer # created using requirement file: torchaudio version 0.10
 
